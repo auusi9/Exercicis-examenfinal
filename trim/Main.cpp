@@ -21,8 +21,43 @@ int fibonacci(int position){
 }
 int main(int argc, char** argv)
 {
-	cout << fibonacci(6);
+	p2List<int> a;
+	p2List<int> b;
 	
+	a.add(9);
+	a.add(8);
+	a.add(7);
+	b.add(6);
+	b.add(5);
+	b.add(4);
+	b.add(3);
+	for (int i = 0; i < a.count(); i++){
+		cout << a[i];
+
+	}
+	cout << endl;
+	a += b;
+	for (int i = 0; i < a.count(); i++){
+		cout << a[i];
+
+	}
+
+	//cout << fibonacci(6);
+	/*
+	p2DynArray<int> a;
+	p2DynArray<int> b;
+	b.PushBack(2);
+	b.PushBack(8);
+	b.PushBack(4);
+	b.PushBack(5);
+	a.PushBack(1);
+	a.PushBack(3);
+	a.Middle(b);
+	//cout << a.Count()/2;
+	for (int i = 0; i < a.Count(); i++){
+		cout << *a.At(i);
+
+	}*/
 	/*
 	p2DynArray<int> a;
 	srand(time(NULL));

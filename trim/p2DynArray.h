@@ -83,6 +83,13 @@ public:
 		return actual2;
 
 	}
+	void Middle(const p2DynArray<VALUE>& mitg){
+
+		int j = num_elements / 2;
+		for (int i = 0; i < mitg.num_elements; i++){
+			Insert(mitg.data[i], i + (j));
+		}
+	}
 
 	void flip(){
 

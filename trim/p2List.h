@@ -102,7 +102,17 @@ public:
 
 		return(++size);
 	}
+	
+	//operator +=
 
+	const p2List<tdata>& operator +=(const p2List<tdata>& otherlist){
+		
+		for (unsigned int i = 0; i < otherlist.size; i++){
+		add(otherlist[i]);
+		}
+
+		return (*this);
+	}
 	//Operator []
 
 	tdata& operator[](const unsigned int index)const{
