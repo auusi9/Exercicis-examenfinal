@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
-
+#include <assert.h>
 #define TMP_STRING_SIZE	4096
 
 class p2SString
@@ -67,6 +67,47 @@ public:
 		}
 	}
 
+	unsigned int Substitute(const char* src, const char *dst){
+	
+	
+		assert(src);
+		assert(dst);
+
+		unsigned int num = Find(src);
+
+
+		if (num > 0){
+
+
+
+
+
+
+
+
+
+		}
+
+	
+	
+	}
+
+	unsigned int Find(const char* string) const{
+		unsigned int ret;
+		if (string != NULL)
+		{
+			unsigned int len = strlen(string);
+
+			for (unsigned int i = 0; i < size - len; ++i)
+			{
+				if (strncmp(string, &str[i], len) == 0)
+				{
+					i += len;
+					++ret;
+				}
+			}
+		}
+	}
 	
 	// Destructor
 	virtual ~p2SString()
