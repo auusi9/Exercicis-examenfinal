@@ -67,30 +67,7 @@ public:
 		}
 	}
 
-	unsigned int Substitute(const char* src, const char *dst){
-	
-	
-		assert(src);
-		assert(dst);
 
-		unsigned int num = Find(src);
-
-
-		if (num > 0){
-
-
-
-
-
-
-
-
-
-		}
-
-	
-	
-	}
 
 	unsigned int Find(const char* string) const{
 		unsigned int ret;
@@ -215,7 +192,21 @@ public:
 		return(*this);
 	}
 
+	void Cut(unsigned int pos1, unsigned int pos2){
+
+		if (pos2 == 0){ str[pos1] = '\0'; return; }
+
+		if (pos2 < pos1){ return; }
+
+			for (int i = 0; i < Length(); i++){
+
+				str[pos1 + i] = str[pos2 + i + 1];
+
+			}
+	}	
 	void Trim(){
+
+
 		 int j=0;
 		for (unsigned int i = 0; i < size; i++){
 

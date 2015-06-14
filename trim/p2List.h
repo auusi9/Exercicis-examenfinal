@@ -102,7 +102,32 @@ public:
 
 		return(++size);
 	}
-	
+	void InsertAfter(unsigned int index, const p2List<tdata>& otherlist){
+		
+		
+		p2List_item<tdata>* tmp = start;
+		if (index >= size && size != 0){ index = size - 1; end = otherlist.end; }
+		int i = 0;
+		if (index == 0 || size == 0) i = 1;
+		else i = 0;
+
+			for (i; i <index; i++){
+
+
+			tmp = tmp->next;
+
+
+			}
+			
+			otherlist.start->prev = tmp;
+			otherlist.end->next = tmp->next;
+			tmp->next = otherlist.start;
+			tmp->next->prev = otherlist.end;
+			size += otherlist.size;
+			
+
+
+	}
 	//operator +=
 
 	const p2List<tdata>& operator +=(const p2List<tdata>& otherlist){

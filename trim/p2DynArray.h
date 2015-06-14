@@ -50,6 +50,15 @@ public:
 		return data[index];
 	}
 
+	const p2DynArray<VALUE>& operator +=(const p2DynArray<VALUE>& dynarray ){
+
+		for (int i = 0; i < dynarray.Count(); i++){
+
+			PushBack(dynarray[i]);
+		}
+
+		return (*this);
+	}
 	// Data Management
 	void PushBack(const VALUE& element)
 	{
