@@ -57,7 +57,8 @@ public:
 			PushBack(dynarray[i]);
 		}
 
-		return (*this);
+		return (*this);// Exercicis cut array dynamic, operador dasignacio, += llista enllaçada, prefix.
+		//Exercicis arbres trobar una dada, propagar valors :cada fill suma el valor del seu pare, llista dels nodes que no tenen fill.agafar un node del arbre i que sigui fill d'un altre node. buscar per amplada(no es recursiu i sha de fer servir una cua).detectar paraules que comencin i acabin igual recursiu palindromes clase cadena.
 	}
 	// Data Management
 	void PushBack(const VALUE& element)

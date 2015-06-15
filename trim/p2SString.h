@@ -196,13 +196,13 @@ public:
 
 		if (pos2 == 0){ str[pos1] = '\0'; return; }
 
-		if (pos2 < pos1){ return; }
+		if (pos2 < pos1){ return;}
 
 			for (int i = 0; i < Length(); i++){
 
 				str[pos1 + i] = str[pos2 + i + 1];
 
-			}
+			}//exercici pasar un caracter i que s'esborrin tots les lletres, intercanviar paraules, incrementar espais
 	}	
 	void Trim(){
 
