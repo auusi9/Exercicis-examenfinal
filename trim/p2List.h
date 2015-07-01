@@ -119,6 +119,53 @@ public:
 			tmp->next->prev = otherlist.end;
 			size += otherlist.size;
 	}//intercalar dos llistes, prefix llista, flip llista
+
+	void InsertMiddle(const p2List<tdata>& otherlist){
+
+		
+		p2List_item<tdata>* tmp = start;
+		p2List_item<tdata>* tmp_otherlist = otherlist.start;
+
+		if (start == NULL){
+
+			for (int i = 0; i < otherlist.size; i++){
+
+				add(tmp_otherlist->data);
+				tmp_otherlist = tmp_otherlist->next;
+
+			}
+
+		}
+
+		else{
+		
+			for (int i = 0; i < (count() / 2)-1; i++){
+
+			tmp = tmp->next;
+
+			}
+
+	
+
+			while (tmp_otherlist != NULL){
+			
+				p2List_item<tdata>* p_new_item = new p2List_item<tdata>(tmp_otherlist->data);
+				size++;
+				p_new_item->next = tmp->next;
+				p_new_item->next->prev = p_new_item;
+				p_new_item->prev = tmp;
+				p_new_item->prev->next = p_new_item;
+			
+				tmp_otherlist = tmp_otherlist->next;
+				tmp = tmp->next;
+			
+			}
+
+		}
+		
+	}
+
+
 	//operator +=
 
 	const p2List<tdata>& operator +=(const p2List<tdata>& otherlist){

@@ -60,6 +60,8 @@ public:
 		return (*this);// Exercicis cut array dynamic, operador dasignacio, += llista enllaçada, prefix.
 		//Exercicis arbres trobar una dada, propagar valors :cada fill suma el valor del seu pare, llista dels nodes que no tenen fill.agafar un node del arbre i que sigui fill d'un altre node. buscar per amplada(no es recursiu i sha de fer servir una cua).detectar paraules que comencin i acabin igual recursiu palindromes clase cadena.
 	}
+
+
 	// Data Management
 	void PushBack(const VALUE& element)
 	{
@@ -116,6 +118,26 @@ public:
 			return true;
 		}
 		return false;
+	}
+	void Cut(unsigned int pos1, unsigned int pos2){
+
+		if (pos2 == 0){
+
+			num_elements = pos1;
+
+		}
+
+		else if (pos2 < pos1)return;
+
+		else{
+
+			for (int i = 0; i+pos2  < num_elements; i++){
+
+				data[pos1 + i] = data[pos2 + i + 1];
+				
+			}
+			num_elements-=(pos2-pos1+1);
+		}
 	}
 
 	void Clear()

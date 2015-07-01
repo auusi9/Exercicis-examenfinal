@@ -66,25 +66,10 @@ public:
 			Clear();
 		}
 	}
+	
 
 
-
-	unsigned int Find(const char* string) const{
-		unsigned int ret;
-		if (string != NULL)
-		{
-			unsigned int len = strlen(string);
-
-			for (unsigned int i = 0; i < size - len; ++i)
-			{
-				if (strncmp(string, &str[i], len) == 0)
-				{
-					i += len;
-					++ret;
-				}
-			}
-		}
-	}
+	
 	
 	// Destructor
 	virtual ~p2SString()
@@ -192,6 +177,68 @@ public:
 		return(*this);
 	}
 
+	unsigned int Find(const char* string) const{
+		unsigned int ret=0;
+		if (string != NULL)
+		{
+			unsigned int len = strlen(string);
+
+			for (unsigned int i = 0; i < size - len; ++i)
+			{
+				if (strncmp(string, &str[i], len) == 0)
+				{
+					i += len-1;
+					ret++;
+				}
+			}
+			
+		}
+		return ret;
+	}
+
+	void Substitute(const char* string, const char* string2){
+
+		unsigned int num =  Find(string);
+		int len = strlen(string);
+		int len2 = strlen(string2);
+
+		if (strlen(string) < strlen(string2)){
+
+			int dif = len2 - len;
+			Alloc(size + (dif*num)-1);
+
+		}
+
+		while (num != 0){
+			
+
+			for (unsigned int i = 0; i < size - len; ++i)
+			{
+				if (strncmp(string, &str[i], len) == 0)
+				{
+					char* tmp = str;
+					for (int j =0; j < len2; j++){
+
+						str[i + j] = string2[j];
+					}
+					for (int j = 0; j < len2; j++){
+
+						str[i + j+len2] = tmp[i+len+j];
+					}
+					
+				}
+			}
+
+
+
+
+
+			num--;
+		}
+
+
+	}
+
 	void Cut(unsigned int pos1, unsigned int pos2){
 
 		if (pos2 == 0){ str[pos1] = '\0'; return; }
@@ -204,6 +251,26 @@ public:
 
 			}//exercici pasar un caracter i que s'esborrin tots les lletres, intercanviar paraules, incrementar espais
 	}	
+
+	void Deletechar(const char leter){
+		
+		for (int i = 0; i < Length(); i++){
+
+			if (str[i] == leter){
+
+				for (int j = i; j < Length(); j++){
+
+					str[j] = str[j + 1];
+					
+				}
+				i--;
+			}
+
+		}
+
+
+
+	}
 	void Trim(){
 
 

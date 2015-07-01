@@ -21,36 +21,35 @@ int fibonacci(int position){
 }
 int main(int argc, char** argv)
 {
+	/*
 	
-	
-p2List<int> a;
-p2List<int> b;
-	/*srand(time(NULL));
-	for (unsigned int i = 0; i <= 10000; i++){
-		int r = rand() % 100;;
-		a.add(r);
+	p2DynArray<int> a;
+	p2DynArray<int> b;
+	a.PushBack(1);
+	a.PushBack(2);
+	a.PushBack(3);
+	a.PushBack(4);
+	a.PushBack(5);
+	a.PushBack(6);
 
-	}*/
-
-	b.add(9);
-	b.add(8);
-	b.add(7);
-	a.add(6);
-	a.add(5);
-	a.add(4);
-	a.add(3);
-	
-	
-	a.InsertAfter(1, b);
-
-
-	for (int i = 0; i < a.count(); i++){
-		cout << a[i];
+	for (int i = 0; i < a.Count(); i++){
+		cout << *a.At(i);
 
 	}
+	cout << endl;
+	a.Cut(1,2);
 
-
+	for (int i = 0; i < a.Count(); i++){
+		cout << *a.At(i);
+		
+	}*/
 	
+	p2SString s1("hola");
+	s1.Substitute("hola", "co");
+	
+
+	cout << s1.GetString() <<endl;
+
 	
 
 
@@ -59,10 +58,37 @@ p2List<int> b;
 
 	
 	//cout << fibonacci(6);
-	/*p2SString s1("Hola mundo");
-	s1.Cut(1,7);
+	/*
+	p2List<int> a;
+	p2List<int> b;
+	srand(time(NULL));
+	/*for (unsigned int i = 0; i <= 10000; i++){
+		int r = rand() % 100;;
+		a.add(r);
 
-	cout << s1.GetString() << s1.Length();
+	}
+
+	b.add(9);
+	b.add(8);
+	b.add(7);
+	a.add(6);
+	a.add(5);
+	a.add(4);
+	a.add(3);
+	a.add(6);
+	a.add(5);
+	a.add(4);
+	a.add(3);
+
+
+	a.InsertMiddle(b);
+
+
+	for (int i = 0; i < a.count(); i++){
+		cout << a[i];
+
+	}
+
 	*/
 	/*
 	p2DynArray<int> a;
