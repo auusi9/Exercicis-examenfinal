@@ -44,12 +44,13 @@ int main(int argc, char** argv)
 		
 	}*/
 	
-	p2SString s1("hola");
-	s1.Substitute("hola", "co");
+	p2SString s1("hola don pepito holaholahola");
+	cout << s1.Find("hola") << endl;
+	cout << s1.Substitute("hola", "papagayo");
 	
 
 	cout << s1.GetString() <<endl;
-
+	
 	
 
 

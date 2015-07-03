@@ -195,48 +195,49 @@ public:
 		}
 		return ret;
 	}
+	unsigned int Substitute(const char* src, const char *dst)
+	{
+		assert(src);
+		assert(dst);
 
-	void Substitute(const char* string, const char* string2){
+		unsigned int instances = Find(src);
 
-		unsigned int num =  Find(string);
-		int len = strlen(string);
-		int len2 = strlen(string2);
+		if (instances > 0)
+		{
+			unsigned int src_len = strlen(src);
+			unsigned int dst_len = strlen(dst);
+			unsigned int diff = dst_len - src_len;
+			unsigned int needed_size = 1 + strlen(str) + (diff * instances);
 
-		if (strlen(string) < strlen(string2)){
-
-			int dif = len2 - len;
-			Alloc(size + (dif*num)-1);
-
-		}
-
-		while (num != 0){
-			
-
-			for (unsigned int i = 0; i < size - len; ++i)
+			if (size < needed_size)
 			{
-				if (strncmp(string, &str[i], len) == 0)
+				char* tmp = str;
+				Alloc(needed_size);
+				strcpy_s(str, size, tmp);
+				delete tmp;
+			}
+
+			for (unsigned int i = 0; i < size - src_len; ++i)
+			{
+				if (strncmp(src, &str[i], src_len) == 0)
 				{
-					char* tmp = str;
-					for (int j =0; j < len2; j++){
-
-						str[i + j] = string2[j];
+					// make room
+					for (unsigned int j = strlen(str) + diff; j > i + diff; --j)
+					{
+						str[j] = str[j - diff];
 					}
-					for (int j = 0; j < len2; j++){
 
-						str[i + j+len2] = tmp[i+len+j];
+					// copy
+					for (unsigned int j = 0; j < dst_len; ++j)
+					{
+						str[i++] = dst[j];
 					}
-					
 				}
 			}
 
-
-
-
-
-			num--;
 		}
 
-
+		return instances;
 	}
 
 	void Cut(unsigned int pos1, unsigned int pos2){
