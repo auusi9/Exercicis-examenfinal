@@ -70,7 +70,9 @@
     <ClInclude Include="p2List.h" />
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="p2SString.h" />
+    <ClInclude Include="p2Vector2.h" />
     <ClInclude Include="Qeue.h" />
+    <ClInclude Include="Vec3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
